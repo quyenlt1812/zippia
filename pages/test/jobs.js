@@ -5,14 +5,20 @@ import React, { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import styles from "../../styles/Jobs.module.css";
 
+// const REQUEST_PAYLOAD = {
+//   companySkills: true,
+//   dismissedListingHashes: [],
+//   fetchJobDesc: true,
+//   locations: [],
+//   numJobs: 10,
+//   previousListingHashes: [],
+//   jobTitle: "Business Analyst",
+// };
+
 const Jobs = () => {
   const REQUEST_PAYLOAD = {
-    companySkills: true,
-    dismissedListingHashes: [],
     fetchJobDesc: true,
-    locations: [],
     numJobs: 10,
-    previousListingHashes: [],
     jobTitle: "Business Analyst",
   };
   const URL = "https://www.zippia.com/api/jobs";
@@ -78,6 +84,8 @@ const Jobs = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
+          flexWrap: "wrap",
+          marginBottom: 24,
         }}
       >
         <h1 className={styles["page-title"]}>
@@ -98,12 +106,7 @@ const Jobs = () => {
       <div className={styles["job-list"]}>
         {jobs.map((job) => (
           // Start Job Item
-          <a
-            key={job.jobId}
-            className={styles["jobs-item"]}
-            href={job.jobDLPUrl}
-            target="_blank"
-          >
+          <a key={job.jobId} className={styles["jobs-item"]} href="#">
             <div style={{ flex: 1, marginBottom: 16, height: 70 }}>
               <div className={styles["jobs-item-image"]}>
                 {job.companyLogo ? (
