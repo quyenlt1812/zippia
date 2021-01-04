@@ -19,7 +19,9 @@ const Jobs = () => {
   const REQUEST_PAYLOAD = {
     fetchJobDesc: true,
     numJobs: 10,
-    jobTitle: "Business Analyst",
+    dismissedListingHashes: [],
+    previousListingHashes: [],
+    jobTitle: "Developer",
   };
   const URL = "https://www.zippia.com/api/jobs";
 
