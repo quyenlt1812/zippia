@@ -1,12 +1,7 @@
-.page-title {
-  font-size: 2rem;
-  color: #3174ee;
-  text-transform: uppercase;
-  letter-spacing: 5px;
-}
-
-.page-title span {
-  color: #233558;
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .jobs {
@@ -20,17 +15,69 @@
   font-family: "Poppins", sans-serif;
 }
 
-.row {
+.jobs .jobs-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
 }
 
-.justify-between {
-  justify-content: space-between;
+.jobs .jobs-header .page-title,
+.jobs .jobs-header .page-title {
+  flex-grow: 1;
 }
 
-.job-list {
+.jobs .jobs-header .page-title {
+  font-size: 2rem;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+.jobs .jobs-header .page-title span {
+  color: var(--title);
+}
+
+.jobs .jobs-header .button-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.jobs .jobs-header .button-group .button {
+  outline: 0;
+  background-color: var(--white);
+  color: var(--primary);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid var(--primary);
+  transition: all 0.25s ease-in-out;
+}
+
+.jobs .jobs-header .button-group .button:hover {
+  opacity: 0.5;
+}
+
+.jobs .jobs-header .button-group .button-selected {
+  outline: 0;
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid var(--primary);
+  transition: all 0.25s ease-in-out;
+}
+
+.jobs .jobs-header .button-group .button-selected:hover {
+  opacity: 0.7;
+}
+
+.jobs .job-list {
   display: grid;
   grid-template-columns: 1fr;
   grid-auto-rows: 1fr;
@@ -38,156 +85,20 @@
   gap: 16px;
 }
 
-.jobs-item {
-  padding: 16px;
-  border: 1px solid lightgray;
-  border-radius: 24px;
-  transition: all 0.25s ease-in-out;
-  background-color: white;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-}
-
-.jobs-item:hover {
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  border-color: #3174ee;
-  border-radius: 0;
-}
-
-.jobs-item:hover .jobs-item-title {
-  color: #3174ee;
-}
-
-.jobs-item .jobs-item-image {
-  width: 50px;
-  height: 50px;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  border-radius: 100%;
-  overflow: hidden;
-  margin-right: 16px;
-  flex-basis: 50px;
-  margin-bottom: 8px;
-}
-
-.jobs-item .jobs-item-image-alt {
-  width: 50px;
-  height: 100%;
-  background-color: #3174ee;
-  color: white;
-  font-weight: 600;
-  font-size: 1.125rem;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-}
-
-.jobs-item .jobs-item-company {
-  font-size: 0.75rem;
-  color: #212121;
-}
-
-.jobs-item-location {
-  font-size: 0.75rem;
-  color: rgb(160, 158, 158);
-}
-
-.jobs-item .jobs-item-title {
-  display: -webkit-box;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  font-size: 1.025rem;
-  font-weight: 600;
-  transition: all 0.25s ease-in-out;
-  margin-top: 8px;
-  color: #233558;
-  line-height: 1.5rem;
-  margin-bottom: 8px;
-  text-transform: capitalize;
-}
-
-.jobs-item-skills {
-  display: -webkit-box;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  font-size: 0.85rem;
-  color: grey;
-}
-
-.addition-info {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 0.85rem;
-}
-
-.jobs-created-date {
-  color: rgb(160, 158, 158);
-}
-
-.jobs-est-salary {
-  color: #6dbb40;
-  font-weight: 600;
-}
-
-.button-group {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-.button {
-  outline: 0;
-  background-color: white;
-  color: #3174ee;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
-  cursor: pointer;
-  border: 1px solid #3174ee;
-  transition: all 0.25s ease-in-out;
-}
-
-.button:hover {
-  opacity: 0.5;
-}
-
-.button-selected {
-  outline: 0;
-  background-color: #3174ee;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
-  cursor: pointer;
-  border: 1px solid #3174ee;
-  transition: all 0.25s ease-in-out;
-}
-
-.button-selected:hover {
-  opacity: 0.7;
-}
-
 @media screen and (min-width: 481px) {
-  .job-list {
+  .jobs .job-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media screen and (min-width: 769px) {
-  .job-list {
+  .jobs .job-list {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
 @media screen and (min-width: 1225px) {
-  .job-list {
+  .jobs .job-list {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }

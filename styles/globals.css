@@ -1,3 +1,13 @@
+:root {
+  --primary: #3174ee;
+  --accent: #6dbb40;
+  --white: #ffffff;
+  --title: #233558;
+  --primary-text: #212121;
+  --secondary-text: #a09e9e;
+  --border: #d3d3d3;
+}
+
 html,
 body {
   padding: 0;

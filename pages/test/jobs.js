@@ -1,8 +1,8 @@
-import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
+import Head from "next/head";
 import React, { useEffect, useState } from "react";
-import ReactMarkdown from "react-markdown";
+import JobItem from "../../components/JobItem";
+import JobItemSkeletion from "../../components/JobItemSkeleton";
 import styles from "../../styles/Jobs.module.css";
 
 // const REQUEST_PAYLOAD = {
@@ -25,7 +25,7 @@ const Jobs = () => {
   };
   const URL = "https://www.zippia.com/api/jobs";
 
-  const [jobs, setJobs] = useState([]);
+  const [jobs, setJobs] = useState(null);
   const [recently, setRecently] = useState(false);
 
   const fetchJobs = () => {
@@ -63,94 +63,37 @@ const Jobs = () => {
   }, [recently]);
 
   const loadJobs7Days = () => {
+    setJobs(null);
     setRecently(!recently);
-    // axios
-    //   .post(URL, { ...REQUEST_PAYLOAD, postingDateRange: "7d" })
-    //   .then((resp) => {
-    //     const jobList = resp.data?.jobs;
-    //     console.log("[Jobs] 7 days fetching", jobList);
-    //     if (Array.isArray(jobList)) {
-    //       setJobs(jobList);
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.log("[Jobs] 7 days fetching error", error);
-    //   });
   };
 
   return (
     <div className={styles.jobs}>
+      <Head>
+        <title>Zippia Jobs</title>
+      </Head>
       {/* Start Header */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          flexWrap: "wrap",
-          marginBottom: 24,
-        }}
-      >
+      <div className={styles["jobs-header"]}>
         <h1 className={styles["page-title"]}>
           Zippia<span>Jobs</span>
         </h1>
         <div className={styles["button-group"]}>
-          <button className={styles.button}>Company name</button>
+          <button className={styles.button}>Offer by company name</button>
           <button
             className={recently ? styles["button-selected"] : styles.button}
             onClick={loadJobs7Days}
           >
-            Last 7 days
+            Published in the last 7 days
           </button>
         </div>
       </div>
       {/* End Header */}
       {/* Start Job List */}
       <div className={styles["job-list"]}>
-        {jobs.map((job) => (
-          // Start Job Item
-          <a key={job.jobId} className={styles["jobs-item"]} href="#">
-            <div style={{ flex: 1, marginBottom: 16, height: 70 }}>
-              <div className={styles["jobs-item-image"]}>
-                {job.companyLogo ? (
-                  <img
-                    src={job.companyLogo}
-                    alt={job.companyName}
-                    width="100%"
-                    loading="true"
-                  />
-                ) : (
-                  <div className={styles["jobs-item-image-alt"]}>
-                    {job.companyInitial}
-                  </div>
-                )}
-              </div>
-              <div style={{ flex: 1 }}>
-                <div className={styles["jobs-item-company"]}>
-                  {job.companyName}
-                </div>
-                <div className={styles["jobs-item-location"]}>
-                  <FontAwesomeIcon icon={faMapMarkerAlt} /> {job.location}
-                </div>
-              </div>
-              {/* <div className={styles["jobs-item-title"]}>{job.OBJtitle}</div> */}
-              <div className={styles["jobs-item-title"]}>{job.jobTitle}</div>
-              {/* Still thinking about should I use markdown renderer here */}
-              {/* <ReactMarkdown className={styles["jobs-item-skills"]}>
-                {job.shortDesc}
-              </ReactMarkdown> */}
-              <div className={styles["jobs-item-skills"]}>{job.shortDesc}</div>
-            </div>
-            <div className={[styles["addition-info"]]}>
-              <div className={styles["jobs-created-date"]}>
-                {job.postedDate}
-              </div>
-              <div className={styles["jobs-est-salary"]}>
-                {job.estimatedSalary}
-              </div>
-            </div>
-          </a>
-          // End Job Item
-        ))}
+        {/* Map jobs to job item */}
+        {!Array.isArray(jobs)
+          ? [...new Array(4)].map((tmpItem) => <JobItemSkeletion />)
+          : jobs.map((job) => <JobItem {...job} />)}
       </div>
       {/* End Job List */}
     </div>
