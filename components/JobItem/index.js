@@ -13,6 +13,8 @@ const JobItem = (props) => {
               src={props?.companyLogo}
               alt={props?.companyName}
               loading="lazy"
+              width="50"
+              height="50"
             />
           ) : (
             <div className={styles["job-item-image-alt"]}>

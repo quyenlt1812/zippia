@@ -57,7 +57,7 @@
 
 .job-item-location {
   font-size: 0.75rem;
-  color: var(--secondary-text);
+  color: var(--primary);
 }
 
 .job-item .job-item-title {
@@ -83,7 +83,7 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   font-size: 0.85rem;
-  color: var(--secondary-text);
+  color: var(--primary-text);
 }
 
 .job-item .addition-info {
