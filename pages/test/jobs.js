@@ -49,7 +49,6 @@ const Jobs = () => {
         .post(URL, { ...REQUEST_PAYLOAD, postingDateRange: "7d" })
         .then((resp) => {
           const jobList = resp.data?.jobs;
-          console.log("[Jobs] 7 days fetching", jobList);
           if (Array.isArray(jobList)) {
             setJobs(jobList);
           }
