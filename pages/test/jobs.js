@@ -94,8 +94,10 @@ const Jobs = () => {
       <div className={styles["job-list"]}>
         {/* Map jobs to job item */}
         {!Array.isArray(jobs)
-          ? [...new Array(4)].map((tmpItem) => <JobItemSkeletion />)
-          : jobs.map((job) => <JobItem {...job} />)}
+          ? [...new Array(4)].map((_, index) => (
+              <JobItemSkeletion key={index} />
+            ))
+          : jobs.map((job) => <JobItem key={job.jobId} {...job} />)}
       </div>
       {/* End Job List */}
     </div>

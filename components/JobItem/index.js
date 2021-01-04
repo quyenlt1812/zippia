@@ -5,7 +5,7 @@ import styles from "../../styles/JobItem.module.css";
 
 const JobItem = (props) => {
   return (
-    <a key={props?.jobId} className={styles["job-item"]} href="#">
+    <a className={styles["job-item"]} href="#">
       <div style={{ flex: 1, marginBottom: 16, height: 70 }}>
         <div className={styles["job-item-image"]}>
           {props?.companyLogo ? (
@@ -13,7 +13,7 @@ const JobItem = (props) => {
               src={props?.companyLogo}
               alt={props?.companyName}
               width="100%"
-              loading="true"
+              loading="lazy"
             />
           ) : (
             <div className={styles["job-item-image-alt"]}>
