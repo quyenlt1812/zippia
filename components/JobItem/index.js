@@ -30,7 +30,10 @@ const JobItem = (props) => {
         {/* <ReactMarkdown className={styles["job-item-description"]}>
           {props?.shortDesc}
         </ReactMarkdown> */}
-        <div className={styles["job-item-description"]}>{props?.shortDesc}</div>
+        <div
+          className={styles["job-item-description"]}
+          dangerouslySetInnerHTML={{ __html: props?.shortDesc }}
+        />
       </div>
       <div className={styles["addition-info"]}>
         <div className={styles["job-created-date"]}>{props?.postedDate}</div>

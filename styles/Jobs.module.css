@@ -57,8 +57,14 @@
   transition: all 0.25s ease-in-out;
 }
 
-.jobs .jobs-header .button-group .button:hover {
+.jobs .jobs-header .button-group .button:disabled {
   opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.jobs .jobs-header .button-group .button:hover,
+.jobs .jobs-header .button-group .button-selected:hover {
+  opacity: 0.7;
 }
 
 .jobs .jobs-header .button-group .button-selected {
@@ -71,10 +77,6 @@
   cursor: pointer;
   border: 1px solid var(--primary);
   transition: all 0.25s ease-in-out;
-}
-
-.jobs .jobs-header .button-group .button-selected:hover {
-  opacity: 0.7;
 }
 
 .jobs .job-list {

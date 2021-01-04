@@ -78,7 +78,9 @@ const Jobs = () => {
           Zippia<span>Jobs</span>
         </h1>
         <div className={styles["button-group"]}>
-          <button className={styles.button}>Offer by company name</button>
+          <button disabled className={styles.button}>
+            Offer by company name
+          </button>
           <button
             className={recently ? styles["button-selected"] : styles.button}
             onClick={loadJobs7Days}
