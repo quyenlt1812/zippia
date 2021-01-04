@@ -71,6 +71,10 @@ const Jobs = () => {
     <div className={styles.jobs}>
       <Head>
         <title>Zippia Jobs</title>
+        <meta
+          name="description"
+          content="This is the test of Quyen for Zippia"
+        />
       </Head>
       {/* Start Header */}
       <div className={styles["jobs-header"]}>

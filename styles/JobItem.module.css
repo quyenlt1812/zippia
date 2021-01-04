@@ -33,6 +33,11 @@
   margin-bottom: 8px;
 }
 
+.job-item .job-item-image img {
+  width: 50px;
+  height: auto;
+}
+
 .job-item .job-item-image-alt {
   width: 50px;
   height: 100%;

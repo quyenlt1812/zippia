@@ -12,7 +12,6 @@ const JobItem = (props) => {
             <img
               src={props?.companyLogo}
               alt={props?.companyName}
-              width="100%"
               loading="lazy"
             />
           ) : (
